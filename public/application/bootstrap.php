@@ -110,14 +110,7 @@ Kohana::modules(array(
 	// Modules by Subrise
 	'msg'        => MODPATH.'msg',           // Message module by Nabob
 	'sradmin'    => MODPATH.'sradmin',       // Backend to config the website
+	'srsettings' => MODPATH.'srsettings',    // Global web settings like site name and home_page_id
+	'srpage'     => MODPATH.'srpage',        // Page module.. 
 ));
 
-/**
- * Set the routes. Each route must have a minimum of a name, a URI and a set of
- * defaults for the URI.
- */
-Route::set('default', '(<controller>(/<action>(/<id>)))')
-	->defaults(array(
-		'controller' => 'welcome',
-		'action'     => 'index',
-	));
