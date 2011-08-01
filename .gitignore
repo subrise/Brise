@@ -1,2 +1,5 @@
 public/application/cache
 public/application/logs
+.project
+.settings
+.DS_Store
