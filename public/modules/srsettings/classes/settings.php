@@ -39,10 +39,14 @@ class Settings {
 	
 	public function set($index, $value)
 	{
-		$setting = ORM::factory('setting')->where('index','=',$index)->find();
-		$setting->value = $value;
-		$setting->save();
-		$this->_value[$index] = $value;
+		if ( ! empty($index) && ! empty($value) )
+		{
+			$setting = ORM::factory('setting')->where('index','=',$index)->find();
+			$setting->index = $index;
+			$setting->value  = $value;
+			$setting->save();
+			$this->_value[$index] = $value;
+		}
 	}
 	
 } // End Settings
