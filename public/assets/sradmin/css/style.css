@@ -57,7 +57,7 @@ a:visited { color: #551a8b; }
 a:focus { outline: thin dotted; }
 
 /* Improve readability when focused and hovered in all browsers: people.opera.com/patrickl/experiments/keyboard/test */
-a:hover, a:active { outline: 0; }
+a:hover, a:active { outline: 0; text-decoration:none; }
 
 
 /* =============================================================================
@@ -215,7 +215,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 #menu_main
 {
 	background:#444;
-	color:#fff;
+	color:#ccc;
 	padding:10px;
 }
 
@@ -233,18 +233,29 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 #menu_main a
 {
-	color:#fff;
+	color:#ccc;
 	text-decoration:none;
+}
+
+#menu_main li:hover a, #menu_main .active a
+{
+	color:#fff;
 }
 
 #menu_main .active, #menu_main li:hover
 {
-	border-bottom:2px solid;
+	border-left:2px solid #00f;
 }
 
-article
+article, section
 {
 	padding:10px 40px;
+}
+
+label
+{
+	width:150px;
+	float:left;
 }
 
 

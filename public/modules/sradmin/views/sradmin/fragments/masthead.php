@@ -11,9 +11,7 @@
 	     More info: h5bp.com/b/378 -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title><?php echo $page_title ?></title>
-	<meta name="description" content="">
-	<meta name="author" content="">
+	<title><?php echo $page_title.' | Brise CMS' ?></title>
 
 	<!-- Mobile viewport optimized: j.mp/bplateviewport -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,12 +35,12 @@
 	<?php if (Auth::instance()->logged_in('admin')) : ?>
 	<nav id="menu_main" class="clearfix">
 		<ul>
-			<?php $active = isset($activemenu_brise) ? ' class="active"' : ''; ?>
+			<?php $active = ($active_menu == 'brise') ? ' class="active"' : ''; ?>
 			<li<?php echo $active ?>><a href="<?php echo Route::url('sradmin') ?>">Brise</a></li>
-			<?php $active = isset($activemenu_pages) ? ' class="active"' : ''; ?>
-			<li<?php echo $active ?>>Pages</li>
-			<?php $active = isset($activemenu_settings) ? ' class="active"' : ''; ?>
-			<li<?php echo $active ?>>Settings</li>
+			<?php $active = ($active_menu == 'pages') ? ' class="active"' : ''; ?>
+			<li<?php echo $active ?>><a href="<?php echo Route::url('sradmin',array('controller'=>'pages')) ?>">Pages</a></li>
+			<?php $active = ($active_menu == 'settings') ? ' class="active"' : ''; ?>
+			<li<?php echo $active ?>><a href="<?php echo Route::url('sradmin',array('controller'=>'settings')) ?>">Settings</a></li>
 			<li><a href="<?php echo Route::url('sradmin', array('controller'=>'auth','action'=>'logout')) ?>">Logout</a></li>
 		</ul>
 	</nav><!-- #menu_main -->
