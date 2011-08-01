@@ -1,5 +1,6 @@
-public/application/cache
-public/application/logs
+/public/application/logs/*
+/public/application/cache/*
+!.gitignore
 .project
 .settings
 .DS_Store
