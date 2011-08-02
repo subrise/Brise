@@ -40,8 +40,6 @@ class Controller_SRAdmin_Settings extends Controller_SRAdmin_Base
 			{
 				Settings::instance()->set($index, $value);
 			}
-			
-			$this->request->redirect(Route::url('sradmin',array('controller'=>'settings')));
 		}
 	}
 	

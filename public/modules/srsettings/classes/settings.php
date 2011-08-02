@@ -45,7 +45,7 @@ class Settings {
 			$setting->index = $index;
 			$setting->value  = $value;
 			$setting->save();
-			$this->_value[$index] = $value;
+			$this->_values[$index] = $value;
 		}
 	}
 	

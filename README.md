@@ -16,3 +16,7 @@ Types of areas:
 * content area | blocks of text
 * image area | image place holder
 * etc
+
+## License
+
+I haven't figured out under what kind of license I'm publishing this on github. I just liked the service and didn't wanted to invest in a private repo yet.
