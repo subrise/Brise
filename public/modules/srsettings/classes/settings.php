@@ -17,7 +17,6 @@ class Settings {
 		return Settings::$_instance;
 	}
 	
-	// TODO : make this a singleton class.
 	public function __construct()
 	{
 		// get the settings from database
@@ -39,7 +38,7 @@ class Settings {
 	
 	public function set($index, $value)
 	{
-		if ( ! empty($index) && ! empty($value) )
+		if ( ! empty($index) )
 		{
 			$setting = ORM::factory('setting')->where('index','=',$index)->find();
 			$setting->index = $index;
