@@ -10,6 +10,7 @@ class Controller_SRPage extends Controller_Template {
 		{
 			$page = ORM::factory('page')->where('uri', '=', $uri)->find();
 		}
+		echo 'page controller<br>';
 	}
 	
 	public function after()
