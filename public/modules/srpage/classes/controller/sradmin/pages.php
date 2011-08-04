@@ -11,7 +11,10 @@ class Controller_SRAdmin_Pages extends Controller_SRAdmin_Base {
 	
 	public function action_index()
 	{
-		$pages = ORM::factory('page')->where('trashed', '=', 0)->find_all();
+		$pages = ORM::factory('page')
+			->where('trashed', '=', 0)
+			->order_by('title')
+			->find_all();
 
 		$this->template->page_title   = 'Pages';
 		$this->template->page_content = View::factory('sradmin/pages')
