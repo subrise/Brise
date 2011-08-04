@@ -33,17 +33,22 @@
 <body>
 	
 	<?php if (Auth::instance()->logged_in('admin')) : ?>
-	<nav id="menu_main" class="clearfix">
-		<ul>
-			<?php $active = ($active_menu == 'brise') ? ' class="active"' : ''; ?>
-			<li<?php echo $active ?>><a href="<?php echo Route::url('sradmin') ?>">Brise</a></li>
-			<?php $active = ($active_menu == 'pages') ? ' class="active"' : ''; ?>
-			<li<?php echo $active ?>><a href="<?php echo Route::url('sradmin',array('controller'=>'pages')) ?>">Pages</a></li>
-			<?php $active = ($active_menu == 'settings') ? ' class="active"' : ''; ?>
-			<li<?php echo $active ?>><a href="<?php echo Route::url('sradmin',array('controller'=>'settings')) ?>">Settings</a></li>
-			<li><a href="<?php echo Route::url('sradmin', array('controller'=>'auth','action'=>'logout')) ?>">Logout</a></li>
-		</ul>
-	</nav><!-- #menu_main -->
+	<header id="masthead">
+		<?php 
+			$url = Route::url('sradmin');
+			echo ($active_menu == 'brise') ? '<h1 class="active">' : '<h1>';
+			echo '<a href="'.Route::url('sradmin').'">';
+			?>Brise</a></h1>
+		<nav id="menu_main">
+			<ul>
+				<?php $active = ($active_menu == 'pages') ? ' class="active"' : ''; ?>
+				<li<?php echo $active ?>><a href="<?php echo Route::url('sradmin',array('controller'=>'pages')) ?>">Pages</a></li>
+				<?php $active = ($active_menu == 'settings') ? ' class="active"' : ''; ?>
+				<li<?php echo $active ?>><a href="<?php echo Route::url('sradmin',array('controller'=>'settings')) ?>">Settings</a></li>
+				<li><a href="<?php echo Route::url('sradmin', array('controller'=>'auth','action'=>'logout')) ?>">Logout</a></li>
+			</ul>
+		</nav><!-- #menu_main -->
+	</header><!-- #masthead -->
 	<?php endif; ?>
 	
 	<?php echo Msg::instance()->render();?>

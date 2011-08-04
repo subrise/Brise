@@ -6,6 +6,8 @@
  * Kroc Camen, and the H5BP dev community and team.
  *
  * Detailed information about this CSS: h5bp.com/css
+ * =============================================================================
+ * Some resets are adjusted for Brise CMS.. Use clean reset from Boilerplate
  */
 
 
@@ -53,7 +55,7 @@ body, button, input, select, textarea { font-family: sans-serif; color: #222; }
    ========================================================================== */
 
 a { color: #00e; }
-a:visited { color: #551a8b; }
+/* a:visited { color: #551a8b; } */
 a:focus { outline: thin dotted; }
 
 /* Improve readability when focused and hovered in all browsers: people.opera.com/patrickl/experiments/keyboard/test */
@@ -137,7 +139,12 @@ form { margin: 0; }
 fieldset { border: 0; margin: 0; padding: 0; }
 
 /* Indicate that 'label' will shift focus to the associated form element */
-label { cursor: pointer; }
+label
+{
+	cursor:pointer;
+	width:150px;
+	float:left;
+}
 
 /* 
  * 1. Correct color not inheriting in IE6/7/8/9 
@@ -230,40 +237,42 @@ tr.offline td
 
 /* =============================================================================
    Primary styles
-   Author: Sammy Hubner
+   Author      : Sammy Hubner
+   Description : For the backend of Brise CMS
    ========================================================================== */
 
-#menu_main
+#masthead
 {
 	background:#444;
 	color:#ccc;
 	padding:10px;
 }
 
-#menu_main ul
+#masthead nav, #masthead ul
 {
 	display:inline;
 }
 
-#menu_main li
+#menu_main li, #masthead h1
 {
 	display:inline;
 	padding:0 5px;
 	margin:0 5px;
+	font-size:1em;
 }
 
-#menu_main a
+#masthead a
 {
 	color:#ccc;
 	text-decoration:none;
 }
 
-#menu_main li:hover a, #menu_main .active a
+#menu_main li:hover a, #masthead .active a, #masthead h1:hover a
 {
 	color:#fff;
 }
 
-#menu_main .active, #menu_main li:hover
+#masthead .active, #menu_main li:hover, #masthead h1:hover
 {
 	border-left:2px solid #00f;
 }
@@ -273,11 +282,7 @@ article, section
 	padding:10px 40px;
 }
 
-label
-{
-	width:150px;
-	float:left;
-}
+
 
 
 
