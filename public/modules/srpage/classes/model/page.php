@@ -2,6 +2,18 @@
 
 class Model_Page extends ORM {
 	
+	protected $_belongs_to = array(
+		
+		'author' => array(
+			'model' => 'user'
+		),
+		
+		'modifier' => array(
+			'model' => 'user'
+		)
+		
+	);
+	
 	public function generate_uri($title=NULL, $id=NULL)
 	{
 		if (empty($title))

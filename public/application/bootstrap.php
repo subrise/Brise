@@ -112,5 +112,6 @@ Kohana::modules(array(
 	'sradmin'    => MODPATH.'sradmin',       // Backend to config the website
 	'srsettings' => MODPATH.'srsettings',    // Global web settings like site name and home_page_id
 	'srpage'     => MODPATH.'srpage',        // Page module.. 
+	'sruser'     => MODPATH.'sruser',        // User module..
 ));
 
