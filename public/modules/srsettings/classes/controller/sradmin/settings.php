@@ -8,7 +8,14 @@ class Controller_SRAdmin_Settings extends Controller_SRAdmin_Base
 	{
 		parent::before();
 
-		$pages        = ORM::factory('page')->where('trashed','=', 0)->find_all();
+		$pages = ORM::factory('page')
+			->where_open()
+				->or_where('online', '=', TRUE)
+				->or_where('id', '=', Settings::instance()->get('home_page_id'))
+			->where_close()
+			->and_where('trashed','=', FALSE)
+			->find_all();
+			
 		$page_options = array();
 		if ($pages->count() > 0)
 		{
