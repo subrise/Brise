@@ -32,9 +32,9 @@
 			<?php endforeach; ?>
 		</table>
 		<?php if ($homepage_defined) { ?>
-			<p>* Your homepage where your visitors will land on first.</p>
+			<p><small>* Your homepage where your visitors will land on first.</small></p>
 		<?php } else { ?>
-			<p>No page has been set as homepage. You can do this <a href="<?php echo Route::url('sradmin',array('controller'=>'settings')) ?>">here</a>.</p>
+			<p><small>No page has been set as homepage. You can do this <a href="<?php echo Route::url('sradmin',array('controller'=>'settings')) ?>">here</a>.</small></p>
 		<?php } ?>
 	<?php } else { ?>
 	<p>The database is empty, create a page <a href="<?php echo Route::url('sradmin', array('controller'=>'pages', 'action'=>'create')) ?>">here</a>.</p>
