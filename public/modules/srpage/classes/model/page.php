@@ -14,6 +14,10 @@ class Model_Page extends ORM {
 		
 	);
 	
+	protected $_has_many = array(
+		'textareas' => array()
+	);
+	
 	public function generate_uri($title=NULL, $id=NULL)
 	{
 		if (empty($title))
@@ -70,6 +74,20 @@ class Model_Page extends ORM {
 	{
 		$this->modifier_id   = Auth::instance()->get_user()->id;
 		$this->date_modified = time();
+	}
+	
+	public function get_textareas()
+	{
+		if ( ! $this->loaded() )
+			return array();
+		
+		$textareas  = $this->textareas->find_all();
+		$text_array = array();
+		foreach ($textareas as $textarea) 
+		{
+			$text_array[$textarea->index] = $textarea->value;
+		}
+		return $text_array;
 	}
 	
 } // End Model_Page

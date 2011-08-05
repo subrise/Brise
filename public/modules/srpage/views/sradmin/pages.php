@@ -14,14 +14,18 @@
 			<?php $homepage_defined = false; ?>
 			<?php foreach ($pages as $page) : ?>
 			<tr<?php echo ( $page->online ) ? '':' class="offline"' ?>>
-				<td><?php 
+				<td><a href="<?php echo Route::url('sradmin', array(
+					'controller' => 'page',
+					    'action' => 'edit',
+					        'id' => $page->id
+				)) ?>"><?php 
 					if (Settings::instance()->get('home_page_id') == $page->id)
 					{
 						$homepage_defined = true;
 						echo '* ';
 					}
 					echo $page->title 
-				?></td>
+				?></a></td>
 				<td><?php echo $page->uri ?></td>
 				<td><?php echo date('Y-m-d H:i', $page->date_modified) ?></td>
 				<td><?php echo $page->modifier->username ?></td>

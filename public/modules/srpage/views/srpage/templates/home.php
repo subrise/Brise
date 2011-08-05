@@ -1,6 +1,12 @@
 <article>
-	<header><h1>Welcome</h1></header>
-	<div class="editable">
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	</div><!-- .editable -->
+	<header><h1 id="art_home_header"<?php 
+		echo $contenteditable 
+	?>><?php 
+		echo (isset($textarea['art_home_header'])) ? $textarea['art_home_header'] : 'Lorem Ipsum'
+	?></h1></header>
+	<div id="art_home_body"<?php echo $contenteditable ?>>
+		<?php 
+			echo (isset($textarea['art_home_body'])) ? $textarea['art_home_body'] : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+		?>
+	</div>
 </article>
