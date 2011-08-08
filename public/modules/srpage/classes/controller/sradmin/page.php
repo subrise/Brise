@@ -23,15 +23,14 @@ class Controller_SRAdmin_Page extends Controller_SRAdmin_Base {
 		if ( ! $page->loaded())
 			$this->request->redirect(Route::url('sradmin', array('controller'=>'pages')));
 
-		$text_array = $page->get_textareas();
+		$text_array = $page->get_textwidgets();
 			
 		$this->template->page_title   = 'Editing: '.$page->title;
 		$this->template->page_template = View::factory('srpage/templates/'.$page->template)
-			->set('contenteditable', ' contenteditable="TRUE"')
-			->bind('textarea', $text_array);
+			->bind('textwidget', $text_array);
 			
 		$this->template->scripts = array();
-		$this->template->scripts[] = View::factory('sradmin/fragments/inplace_editor_js')
+		$this->template->scripts[] = View::factory('sradmin/fragments/page_js')
 			->bind('page', $page);
 	}
 	
@@ -47,16 +46,16 @@ class Controller_SRAdmin_Page extends Controller_SRAdmin_Base {
 			$value   = $post['value'];
 			
 			// check if index already exist
-			$textarea = ORM::factory('textarea')
+			$textwidget = ORM::factory('textwidget')
 				->where('page_id', '=', $page_id)
 				->and_where('index', '=', $index)
 				->find();
 			
 			
-			$textarea->page_id = $page_id;
-			$textarea->index   = $index;
-			$textarea->value   = $value;
-			$textarea->save();
+			$textwidget->page_id = $page_id;
+			$textwidget->index   = $index;
+			$textwidget->value   = $value;
+			$textwidget->save();
 			
 			echo json_encode('success');
 			

@@ -1,9 +1,9 @@
 <script type="text/javascript" charset="utf-8">
 	(function($){
 		
-		$('.sr_editable').attr('contenteditable', 'true');
+		$('.sr-editable').attr('contenteditable', 'true');
 		
-		$('.sr_editable').hover(function(){
+		$('.sr-editable').hover(function(){
 			if ( ! $(this).hasClass('unsaved') )
 				$(this).css('outline', '1px solid #aaa');
 		}, function(){
@@ -11,13 +11,13 @@
 				$(this).css('outline', 'none');
 		});
 		
-		$('.sr_editable').keyup(function(){
+		$('.sr-editable').keyup(function(){
 			$(this).addClass('unsaved');
 			$(this).css('outline', '1px solid red');
 		});
 		
 		// On blur we try to save the content
-		$('.sr_editable').blur(function(){
+		$('.sr-editable').blur(function(){
 			var index = $(this).attr('id');
 			console.log('Trying to save index: ' + index);
 			var value = $(this).html();

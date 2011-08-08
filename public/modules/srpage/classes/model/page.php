@@ -15,7 +15,7 @@ class Model_Page extends ORM {
 	);
 	
 	protected $_has_many = array(
-		'textareas' => array()
+		'textwidgets' => array()
 	);
 	
 	public function generate_uri($title=NULL, $id=NULL)
@@ -76,16 +76,16 @@ class Model_Page extends ORM {
 		$this->date_modified = time();
 	}
 	
-	public function get_textareas()
+	public function get_textwidgets()
 	{
 		if ( ! $this->loaded() )
 			return array();
 		
-		$textareas  = $this->textareas->find_all();
-		$text_array = array();
-		foreach ($textareas as $textarea) 
+		$textwidgets = $this->textwidgets->find_all();
+		$text_array  = array();
+		foreach ($textwidgets as $textwidget) 
 		{
-			$text_array[$textarea->index] = $textarea->value;
+			$text_array[$textwidget->index] = $textwidget->value;
 		}
 		return $text_array;
 	}

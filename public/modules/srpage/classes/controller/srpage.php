@@ -25,11 +25,11 @@ class Controller_SRPage extends Controller_Template {
 		
 		if ($page->loaded())
 		{
-			$text_array = $page->get_textareas();
+			$text_array = $page->get_textwidgets();
 			
 			$this->template->page_title    = $page->title;
 			$this->template->page_template = View::factory('srpage/templates/'.$page->template)
-				->bind('textarea', $text_array);
+				->bind('textwidget', $text_array);
 		}
 	}
 	
@@ -40,13 +40,9 @@ class Controller_SRPage extends Controller_Template {
 		
 		if ( ! isset($this->template->page_template) )
 			$this->template->page_template = View::factory('srpage/templates/page_not_found');
-			
-		if ( ! isset($this->template->contenteditable) )
-			$this->template->contenteditable = '';
 		
 		View::bind_global('page_title', $this->template->page_title);
 		View::bind_global('page_template', $this->template->page_template);
-		View::bind_global('contenteditable', $this->template->contenteditable);
 	
 		parent::after();
 	}
