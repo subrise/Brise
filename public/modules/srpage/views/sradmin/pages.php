@@ -10,6 +10,7 @@
 				<th colspan=2>Modified</th>			
 				<th colspan=2>Created</th>
 				<th>Online</th>
+				<th>Config</th>
 			</tr>
 			<?php $homepage_defined = false; ?>
 			<?php foreach ($pages as $page) : ?>
@@ -32,6 +33,13 @@
 				<td><?php echo date('Y-m-d H:i', $page->date_created) ?></td>
 				<td><?php echo $page->author->username ?></td>
 				<td><?php echo ($page->online) ? 'Online' : 'Offline' ?></td>
+				<td><?php echo HTML::anchor(Route::url('sradmin', array(
+						'controller' =>'pages',
+						    'action' => 'config',
+						        'id' => $page->id
+					)),
+					'config'
+					) ?></td>
 			</tr>
 			<?php endforeach; ?>
 		</table>

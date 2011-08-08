@@ -60,9 +60,48 @@ class Controller_SRAdmin_Pages extends Controller_SRAdmin_Base {
 		$this->template->page_content = View::factory('sradmin/page_create')
 			->bind(            'page', $page)
 			->bind('template_options', $template_options);
+	}
+	
+	public function action_config()
+	{
+		// If post variables are sent, try to save the page
+		$post = $this->request->post();
+		$page = ORM::factory('page', $this->request->param('id'));
+		if ( $post && $page->loaded() )
+		{
+			try
+			{
+				$page->uri = $page->generate_uri($post['title'], $page->id);
+				$page->values($post);
+				
+				if ( ! isset($post['online']) )
+					$page->online = 0;
+				
+				$page->save();
+				$this->request->redirect(Route::url('sradmin', array('controller'=>'pages')));
+			}
+			catch (ORM_Validation_Exception $e)
+			{
+				$errors = $e->errors();
+				print_r($errors);
+				die();
+			}
+		}
 		
-
+		$template_options = array();		
+		$templates = Kohana::$config->load('templates')->as_array();
+		foreach ($templates as $index => $template)
+		{
+			$template_options[$index] = $template['name'];
+		}
 		
+		
+		$template_options['home'] = 'Home';
+		
+		$this->template->page_title   = 'Configurate your page';
+		$this->template->page_content = View::factory('sradmin/page_config')
+			->bind(            'page', $page)
+			->bind('template_options', $template_options);
 	}
 	
 }

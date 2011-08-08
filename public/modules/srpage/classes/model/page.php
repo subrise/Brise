@@ -74,6 +74,8 @@ class Model_Page extends ORM {
 	{
 		$this->modifier_id   = Auth::instance()->get_user()->id;
 		$this->date_modified = time();
+		
+		parent::update($validation);
 	}
 	
 	public function get_textwidgets()
