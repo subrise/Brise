@@ -44,8 +44,8 @@ body, button, input, select, textarea { font-family: sans-serif; color: #222; }
  * Also: hot pink!
  */
 
-::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
-::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::-moz-selection { background: lime; color: #fff; text-shadow: none; }
+::selection { background: lime; color: #fff; text-shadow: none; }
 
 
 /* =============================================================================
@@ -212,7 +212,57 @@ table { border-collapse: collapse; border-spacing: 0; }
    Author: Sammy Hubner
    ========================================================================== */
 
+html, body
+{
+	width:100%;
+	height:100%;
+}
 
+#container
+{
+	position:relative;
+	width:5000px;
+	background: #fff url(../img/background.png) repeat-x left center;
+	height:100%;
+}
+
+#car
+{
+	width:305px;
+	height:186px;
+	background:url(../img/car.png) no-repeat;
+	position:fixed;
+	left:150px;
+	top:300px;
+}
+
+article
+{
+	background:url(../img/dialog_bg.png) no-repeat;
+	color:#fff;
+	padding:10px 20px;
+	width:396px;
+	height:223px;
+}
+
+#art-home, #art-about
+{
+	position:fixed;
+	top:100px;
+	left:50px;
+}
+
+#art-about
+{
+	display:none;
+}
+
+#dev
+{
+	position:fixed;
+	bottom:10px;
+	left:10px;
+}
 
 
 

@@ -5,6 +5,7 @@ return array(
 	'home' => array(
 		'name'  => 'Home template',
 		// Array of areas which holds text values.
+		/*
 		'text_areas' => array(
 			// #id_name       => input type
 			'art_home_header' => 'text',
@@ -13,7 +14,11 @@ return array(
 		// Array of areas which holds image values.
 		'img_areas' => array(),
 		// Array of ares where widgets can be dropped.
-		'widgetareas' = array()
+		'widgetareas' = array()*/
+	),
+	
+	'ipad' => array(
+		'name' => 'iPad template'
 	)
 
 );
