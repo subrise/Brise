@@ -29,6 +29,38 @@ class Controller_SRAdmin_Page extends Controller_SRAdmin_Base {
 		$this->template->page_template = View::factory('srpage/templates/'.$page->template)
 			->set('contenteditable', ' contenteditable="TRUE"')
 			->bind('textarea', $text_array);
+			
+		$this->template->scripts = array();
+		$this->template->scripts[] = View::factory('sradmin/fragments/inplace_editor_js')
+			->bind('page', $page);
+	}
+	
+	public function action_save()
+	{
+		$this->auto_render = FALSE;
+		$post = $this->request->post();
+		
+		if ($post)
+		{
+			$page_id = $this->request->param('id');
+			$index   = $post['index'];
+			$value   = $post['value'];
+			
+			// check if index already exist
+			$textarea = ORM::factory('textarea')
+				->where('page_id', '=', $page_id)
+				->and_where('index', '=', $index)
+				->find();
+			
+			
+			$textarea->page_id = $page_id;
+			$textarea->index   = $index;
+			$textarea->value   = $value;
+			$textarea->save();
+			
+			echo json_encode('success');
+			
+		}
 	}
 	
 }

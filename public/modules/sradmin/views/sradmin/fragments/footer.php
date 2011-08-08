@@ -10,7 +10,13 @@
 	<script src="/assets/js/script.js"></script>
 	<!-- end scripts-->
 
-
+	<?php 
+		if ( isset($scripts) )
+		{
+			foreach ($scripts as $script)
+				echo $script;
+		}
+	?>
 
 
 	<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.

@@ -32,10 +32,14 @@ class Controller_SRAdmin_Base extends Controller_Template {
 		
 		if ( ! isset($this->template->active_menu) )
 			$this->template->active_menu = 'brise';
+			
+		if ( ! isset($this->template->scripts) )
+			$this->template->scripts = array();
 		
 		View::bind_global('page_title',   $this->template->page_title);
 		View::bind_global('page_content', $this->template->page_content);
 		View::bind_global('active_menu',  $this->template->active_menu);
+		View::bind_global('scripts', $this->template->scripts);
 		
 		parent::after();		
 	}
