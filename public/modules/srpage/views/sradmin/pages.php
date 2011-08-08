@@ -14,7 +14,7 @@
 			<?php $homepage_defined = false; ?>
 			<?php foreach ($pages as $page) : ?>
 			<tr<?php echo ( $page->online ) ? '':' class="offline"' ?>>
-				<td><a href="<?php echo Route::url('sradmin', array(
+				<td><a target="_blank" href="<?php echo Route::url('sradmin', array(
 					'controller' => 'page',
 					    'action' => 'edit',
 					        'id' => $page->id
